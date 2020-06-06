@@ -30,3 +30,20 @@ it should use today’s date to get the month and year.
 import sys
 import calendar
 from datetime import datetime
+
+arg = sys.argv
+today = datetime.now()
+this_month = today.month
+this_year = today.year
+
+if len(arg) == 1:
+  c = calendar.month(this_year, this_month)
+  print(c)
+elif len(arg) == 2:
+  c = calendar.month(this_year, int(arg[1]))
+  print (c)
+elif len(arg) == 3:
+  c = calendar.month(int(arg[2]), int(arg[1]))
+  print(c)
+elif len(arg) > 3:
+  print('Expected only two arguments month and year.')
